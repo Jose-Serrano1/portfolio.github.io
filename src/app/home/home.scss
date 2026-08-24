@@ -1,0 +1,32 @@
+
+:host {
+  display: block;
+  padding: 48px 24px 64px;
+}
+
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 12px;
+  font-weight: 700;
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 32px;
+}
+
+.home h1 {
+  margin: 0;
+}
+
+.home p {
+  margin: 0;
+  color: #c7d2fe;
+  font-size: 0.9em;
+}
+
+.routes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}

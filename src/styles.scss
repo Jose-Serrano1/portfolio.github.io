@@ -1,0 +1,72 @@
+:root {
+  --bg: #0b1020;
+  --bg-soft: #121a2d;
+  --panel: rgba(17, 24, 39, 0.8);
+  --text: #eef2ff;
+  --muted: #c7d2fe;
+  --accent: #7c9cff;
+  --accent-strong: #4f6ef7;
+  --border: rgba(255, 255, 255, 0.12);
+}
+
+html, body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+body {
+  min-height: 100vh;
+  font-family: "PT Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+}
+
+.button {
+  width: min(440px, 90vw);
+  padding: 18px 22px;
+  font-size: 1.05rem;
+  background: rgba(17, 24, 39, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+  border-color: rgba(124, 156, 255, 0.7);
+  background: rgba(79, 110, 247, 0.15);
+}
+
+.tooltip {
+  position: relative;
+  display: block;
+  border-bottom: 1px dotted black; /* Add dots under the hoverable text */
+  cursor: pointer;
+}
+
+.tooltiptext {
+  transform: translateY(-40px);
+  text-wrap: nowrap;
+  font-size: 15px;
+  visibility: hidden;
+  background-color: black;
+  color: #ffffff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}

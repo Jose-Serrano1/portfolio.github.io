@@ -1,0 +1,14 @@
+<div >
+    <div class="home">
+        <h1>Portafolio</h1><p>Jose David</p>
+    </div>
+    <div class="routes">
+        @for(route of routes; track route.route) {
+            <button 
+                (click)="redirect(route.route)"
+                class="button"
+                >
+                {{route.text}}</button>
+        }
+    </div>
+</div>

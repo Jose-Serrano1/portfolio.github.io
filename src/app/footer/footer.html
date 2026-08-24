@@ -1,0 +1,29 @@
+<div class="timeline">
+     @for (page of pages; track page.route) {
+    <div class="tooltip">
+        <div
+          [id]="page.route"
+          [class.current]="current === page.route"
+          (click)="onClick($event, page.route)"
+          class="container"
+        >
+            @if (current === page.route){
+                <span class="arrow" aria-hidden="true">▼</span>
+            }
+            <p>{{page.route}}</p>
+            <!-- <img src="circle.png" width="10px" alt=""> -->
+            <span id="tooltiptext" class="tooltiptext">{{page.tooltip}}</span>
+        </div>
+        <!-- <svg 
+        (click)="test($event, page.route)" 
+        viewBox="0 0 30 10" 
+        version="1.1" xmlns="http://www.w3.org/2000/svg"
+        fill="#3498db"
+        >
+            <circle cx="60" cy="60" r="50" />
+        </svg>
+         -->
+    </div>
+    }
+    <div class="borrar"></div>
+</div>
