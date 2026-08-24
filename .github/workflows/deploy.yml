@@ -28,7 +28,10 @@ jobs:
         run: npm ci
 
       - name: Build Angular
-        run: npm run build -- --base-href /portfolio.github.io/
+        run: npm run build -- --base-href /Portfolio/
+
+      - name: Create 404 page
+        run: cp dist/portafolio/browser/index.html dist/portafolio/browser/404.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
