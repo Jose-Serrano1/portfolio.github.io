@@ -28,7 +28,7 @@ jobs:
         run: npm ci
 
       - name: Build Angular
-        run: npm run build -- --base-href /Portfolio/
+        run: npm run build -- --base-href /portfolio.github.io/
 
       - name: Create 404 page
         run: cp dist/portafolio/browser/index.html dist/portafolio/browser/404.html

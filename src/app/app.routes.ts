@@ -15,4 +15,8 @@ export const routes: Routes = [
         path: '2',
         component: Home
     },
+    {
+        path: '**',
+        redirectTo: ''
+    }
 ];
