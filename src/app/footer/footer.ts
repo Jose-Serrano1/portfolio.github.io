@@ -13,7 +13,6 @@ interface Page {
   templateUrl: './footer.html',
 })
 export class Footer implements OnInit {
-  @Input() previous!: string;
 
   pages: Page[] = [
     {
@@ -63,47 +62,46 @@ export class Footer implements OnInit {
 
   ngOnInit() {
     this.current = this.router.url.substring(1);
+    console.log(this.router.url)
   }
 
   constructor() {
     this.current = this.router.url.substring(1);
-  }
-
-  onClick(event: Event, page: string) {
-    const target = event.currentTarget as HTMLElement;
-
-    const text = document.getElementById("tooltiptext")
-    if (text) {
-      text.textContent = ""
-    }
-
-    const next = document.getElementById(String(Number(page)+1))
-    const current = document.getElementById(page)
-    const arrow = target.querySelector('.arrow') as HTMLElement | null;
     
-    const nextCoordinates = this.getOffset(next)
-    const currentCoordinates = this.getOffset(current)
-    console.log(this.current)
-    // target.classList.remove('clicked');
-    // void target.offsetWidth;
-    // target.classList.add('clicked');
-
-    let offset = 0;
-    if (nextCoordinates?.x && currentCoordinates?.x) {
-      offset = - (currentCoordinates?.x - nextCoordinates?.x)
-    }
-
-    if (arrow) {
-      arrow.style.left = `calc(50% + ${offset}px)`;
-    }
-
-    // target.addEventListener(
-    //   'transitionend',
-    //   () => this.router.navigate(['2']),
-    //   { once: true }
-    // );
   }
 
+onClick(event: Event, page: string) {
+  const target = event.currentTarget as HTMLElement;
+
+  const text = document.getElementById('tooltiptext');
+  if (text) text.textContent = '';
+
+  const next = document.getElementById(page);
+  const current = document.getElementById(this.current);
+  const arrow = document.querySelector('.container.current .arrow') as HTMLElement | null;
+
+  if (!next || !current || !arrow) return;
+
+  const currentCenter = current.getBoundingClientRect().left + current.offsetWidth / 2;
+  const nextCenter = next.getBoundingClientRect().left + next.offsetWidth / 2;
+
+  const offset = nextCenter - currentCenter;
+
+  arrow.style.transform = `translateX(calc(-50% + ${offset}px))`;
+
+  
+  arrow.addEventListener(
+     'transitionend',
+     () => {
+      console.log(1);
+      
+      this.current = page;
+      this.router.navigate([page]);
+     },
+  { once: true }
+  );
+}
+  
   getOffset(el: HTMLElement | null) {
     if (!el) return;
 

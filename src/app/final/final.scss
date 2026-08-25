@@ -1,0 +1,45 @@
+:host {
+    font-size: x-large;
+}
+
+.final-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+    padding: 2rem 1rem;
+}
+
+.three-columns {
+    width: 100%;
+    max-width: 1100px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(180px, 1fr));
+    gap: 1.5rem;
+}
+
+.column {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    padding: 1.25rem;
+    text-align: left;
+}
+
+.column h2 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.column p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+@media (max-width: 700px) {
+    .three-columns {
+        grid-template-columns: 1fr;
+    }
+}

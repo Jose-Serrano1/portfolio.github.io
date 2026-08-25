@@ -1,0 +1,57 @@
+
+:host {
+    font-size: x-large;
+}
+
+.main-container {
+    position: relative;
+    min-height: 420px;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    padding: 2rem 1rem;
+}
+
+.bg-images {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    opacity: 0.45;
+    filter: blur(0.5px);
+    pointer-events: none;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    max-width: 780px;
+}
+
+.music {
+    width: 250px;
+    aspect-ratio: 1;
+    object-fit: cover;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    outline-offset: -100vmax;
+    transition: .7s;
+    cursor: pointer;
+    opacity: 0.85;
+}
+
+.code {
+    @extend .music;
+    transform: translateX(-100px) translateY(120px);
+}
+
+img:hover {
+    outline-color: #0000;
+}
+
